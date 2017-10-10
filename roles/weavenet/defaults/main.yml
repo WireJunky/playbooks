@@ -1,0 +1,2 @@
+ansible_weave_paths_weave: /usr/local/bin/weave
+ansible_weave_paths_bin: /usr/local/bin

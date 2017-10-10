@@ -1,0 +1,4 @@
+- hosts: webservers
+  roles:
+    - angstwad.docker_ubuntu
+    - weavenet

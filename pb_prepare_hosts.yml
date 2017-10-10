@@ -10,7 +10,3 @@
     - output.stdout != "\r\n"
   - name: Gathering Facts
     setup:
-
-- hosts: webservers
-  roles:
-  - common

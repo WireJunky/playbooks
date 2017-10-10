@@ -1,4 +1,0 @@
-- name: echo
-  command: echo "hi ..."
-  register: out
-- debug: var=out.stdout_lines
