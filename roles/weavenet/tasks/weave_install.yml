@@ -1,0 +1,19 @@
+- name: Stop weave if running not as a service
+  command: weave stop
+
+- name: Copy weave service environment file
+  template: 
+    src: weave.j2 
+    dest: /etc/sysconfig/weave
+    mode: 0644
+
+- name: Copy weave service unit
+  copy: src=weave.service dest=/etc/systemd/system/ mode=0644
+
+- name: Enable weave service
+  systemd:
+    name: weave
+    enabled: yes
+    state: restarted
+    daemon_reload: yes
+    masked: no  

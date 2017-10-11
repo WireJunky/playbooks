@@ -1,0 +1,4 @@
+PEERS="{% for peer in peers %}{{hostvars[peer]['ansible_eth1']['ipv4']['address'] }}{% endfor %}"
+WEAVE_PASSWORD="{{password}}"
+
+
