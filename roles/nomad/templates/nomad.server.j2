@@ -1,0 +1,18 @@
+bind_addr = "0.0.0.0" 
+
+data_dir  = "{{ansible_nomad_data_dir}}"
+
+advertise {
+  # Defaults to the node's hostname. If the hostname resolves to a loopback
+  # address you must manually configure advertise addresses.
+  http = "{{local_ipv4}}"
+  rpc  = "{{local_ipv4}}"
+  serf = "{{local_ipv4}}" 
+}
+
+server {
+  enabled          = true
+  bootstrap_expect = 1
+}
+
+

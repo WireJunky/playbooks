@@ -1,5 +1,5 @@
 - name: Download Weave Net
   get_url:
     url: https://git.io/weave
-    dest: "{{ ansible_weave_paths_weave }}"
+    dest: "{{ ansible_nomad_dir }}"
     mode: 0755

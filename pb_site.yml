@@ -1,4 +1,6 @@
-- hosts: webservers
+- import_playbook: pb_prepare_hosts.yml
+
+- hosts: cloud
   roles:
     - angstwad.docker_ubuntu
     - weavenet

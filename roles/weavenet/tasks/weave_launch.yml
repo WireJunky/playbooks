@@ -1,8 +1,0 @@
-- name: Stop Weave
-  command: "{{ ansible_weave_paths_weave }} stop"
-
-- name: Launch Weave
-  command: "{{ ansible_weave_paths_weave }} launch"
-
-- name: Prepare Weave Net environment
-  raw: eval $(weave env)

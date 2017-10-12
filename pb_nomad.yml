@@ -1,0 +1,14 @@
+- hosts: all
+
+  tasks:
+
+  - name: Group servers by Nomad node type
+    group_by: key={{node}}
+
+- hosts: server
+  roles:
+    - nomad
+
+- hosts: client
+  roles:
+    - nomad    

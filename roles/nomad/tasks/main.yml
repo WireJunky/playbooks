@@ -1,0 +1,42 @@
+- name: Install unzip
+  apt:
+    name: unzip
+    state: present
+
+- name: Download & extract
+  unarchive:
+    src: "{{ ansible_nomad_url }}"
+    dest: "{{ ansible_nomad_dir }}"
+    remote_src: yes
+    mode: 0755
+
+- name: Create data directory
+  file: 
+    path: "{{ansible_nomad_data_dir}}" 
+    state: "directory"
+
+- name: Copy server config file
+  template: 
+    src: nomad.server.j2 
+    dest: /etc/nomad
+    mode: 0644   
+  when: node == "server"
+
+- name: Copy client config file
+  template: 
+    src: nomad.client.j2 
+    dest: /etc/nomad
+    mode: 0644   
+  when: node == "client"  
+
+- name: Copy service unit
+  copy: src=nomad.service dest=/etc/systemd/system/ mode=0644     
+
+- name: Enable & restart service
+  systemd:
+    name: nomad
+    enabled: yes
+    state: restarted
+    daemon_reload: yes
+    masked: no    
+

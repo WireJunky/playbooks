@@ -1,0 +1,4 @@
+ansible_nomad_url: https://releases.hashicorp.com/nomad/0.6.3/nomad_0.6.3_linux_amd64.zip
+ansible_nomad_dir: /usr/local/bin
+ansible_nomad_bin: /usr/local/bin/nomad
+ansible_nomad_data_dir: /var/lib/nomad

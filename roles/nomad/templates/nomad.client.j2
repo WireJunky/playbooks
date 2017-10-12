@@ -1,0 +1,13 @@
+# Increase log verbosity
+log_level = "DEBUG"
+
+# Setup data dir
+data_dir = "{{ansible_nomad_data_dir}}"
+
+# Enable the client
+client {
+    enabled = true
+    servers = ["{% for server in groups['server'] %}{{hostvars[server]['ansible_eth1']['ipv4']['address'] }}{% endfor %}"]
+}
+
+

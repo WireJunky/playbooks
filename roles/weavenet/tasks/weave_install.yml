@@ -1,5 +1,8 @@
-- name: Stop weave if running not as a service
+- name: Stop weave if running
   command: weave stop
+
+- name: Create service environment directory
+  file: path=/etc/sysconfig state=directory
 
 - name: Copy weave service environment file
   template: 
